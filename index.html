@@ -1,0 +1,153 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+   <title>stamps</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   <style>
+       body, html {
+           height: 100%;
+           margin: 0;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           margin: 0;
+           background-color: #283d4f;
+           font-family: 'Orbitron', sans-serif;
+           overflow: hidden;
+           color: #13132d;
+       }
+   
+       .centered-div {
+           width: 200px;
+           height: 200px;
+       }
+
+
+       img {
+           width: 100%;
+           height: auto;
+           filter: url('#swirl');
+       }
+       .stamp {
+           display: inline-block;
+           clip-path: polygon(
+               5% 0%, 10% 5%, 15% 0%, 20% 5%, 25% 0%, 30% 5%, 35% 0%, 40% 5%, 45% 0%, 50% 5%,
+               55% 0%, 60% 5%, 65% 0%, 70% 5%, 75% 0%, 80% 5%, 85% 0%, 90% 5%, 95% 0%, 100% 5%,
+               100% 95%, 95% 100%, 90% 95%, 85% 100%, 80% 95%, 75% 100%, 70% 95%, 65% 100%, 60% 95%, 55% 100%,
+               50% 95%, 45% 100%, 40% 95%, 35% 100%, 30% 95%, 25% 100%, 20% 95%, 15% 100%, 10% 95%, 5% 100%,
+               0% 95%, 0% 5%
+           );
+           width: 30%;
+           height: 30%;
+           padding: 15px;
+           border: 10px dashed black; /* Dashed border */
+           border-radius: 15px; /* Rounded corners */
+           box-shadow: 0 0 0 5px white; /* Creates inner space around the image */
+           opacity: 0.7;
+       }
+
+
+       .stamp img {
+           width: 1200px;
+           height: 1200px;
+           object-fit: contain; /* Ensures the image fills the square without stretching */
+           transform: translate(-25%, -50%);
+       }
+
+
+
+
+       h1 {
+           position: absolute;
+           top: 40%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           font-size: 10rem;
+       }
+
+
+       pre {
+           position: absolute;
+           top: 30%;
+           left: 60%;
+           transform: translate(-50%, -50%);
+           font-size: 1.5rem;
+       }
+
+
+       h3 {
+           position: absolute;
+           top: 90%;
+           left: 90%;
+           transform: translate(-50%, -50%);
+           font-size: 0.8rem;
+       }
+ 
+   </style>
+   </style>
+</head>
+<body>
+   <div class="centered-div">
+      
+       <div class="stamp">
+           <img id="image" class="hue-image" src="https://4kwallpapers.com/images/walls/thumbs_3t/4530.png">
+       </div>
+   </div>
+
+
+   <h1>stamps</h1>
+
+
+   <pre>
+       Semipostal     : 1  - 10$ <br>
+       PreInked       : 5  - 40$ <br>
+       Definitive     : 10 - 70$ <br>
+       Stamp Collector: 50 - 300$
+   </pre>
+
+
+   <h3>dm @postag3stamps for serious inquiries</h3>
+
+
+   <svg>
+       <filter id="swirl">
+           <feTurbulence baseFrequency="0.010" numOctaves="2" result="wrap" type="fractalNoise"></feTurbulence>
+           <feDisplacementMap id="liquid" class="liquid" in="SourceGraphic" in2="wrap" scale="300" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
+       </filter>
+   </svg>
+   <script>
+       var image = document.getElementById("image");
+       var liquid = document.getElementById("liquid");
+
+
+       let effectState = 1;
+       function toggleEffect() {
+           if (effectState === 1) {
+               swirly()
+               effectState = 2;
+           } else {
+               normal()
+               effectState = 1;
+           }
+       }
+
+
+       toggleEffect()
+       setInterval(toggleEffect, 3000);
+
+
+       function normal() {
+           gsap.to('#liquid', { duration: 5, attr: { scale: 0 } });
+       }
+
+
+       function swirly() {
+           gsap.to('#liquid', { duration: 5, attr: { scale: 300 } });
+       }
+   </script>
+</body>
+</html>
+
