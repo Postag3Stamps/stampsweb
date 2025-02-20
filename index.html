@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
    <title>stamps</title>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -118,11 +118,11 @@
            outline: none;
            width: 200px;
            font-size: 18px;
-           padding: 5px;
            background: transparent;
            color: #13132d;
-
-
+           padding: 0px;
+           margin: 0px;
+           height: 26px;
        }
 
 
@@ -168,7 +168,7 @@
            }
            #tag{
                position:absolute;
-               top:12%;
+               top:14%;
                left:50%;
            }
 
@@ -287,17 +287,19 @@
 
    <h1>stamps</h1>
   
- 
+   <div class="steps one">1 <p style="font-size: 1rem;">Tag</p></div>
+   <div class="steps two">2 <p style="font-size: 1rem;">Select</p></div>
+
+
    <form
    action="https://formspree.io/f/xvgzlpln"
    method="POST">
       
-       <div class="steps one">1 <p style="font-size: 1rem;">Tag</p></div>
-       <div class="steps two">2 <p style="font-size: 1rem;">Select</p></div>
+      
 
 
-       <label id="tag">
-           @<input type="text" name="tag" class="underline-input" required/>
+       <label>
+           <div id="tag" style="display: flex;justify-content: center;"><p style="margin-right: 5px; margin-top:0px; margin-bottom: 0px">@</p><input type="text" name="tag" class="underline-input" required/> </div>
        </label>
        <label style="border-top-right-radius:10px;" class="hover-box semi">
            <input type="radio" name="choice" value="Semipostal" checked/> Semipostal [1]<p style="display:inline;margin-left:6rem;">10$</p>
