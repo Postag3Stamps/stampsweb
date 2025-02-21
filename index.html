@@ -6,9 +6,6 @@
    <title>stamps</title>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
    <style>
-       /* input[type="radio"] {
-           display: none;
-       } */
 
 
        body, html {
@@ -21,7 +18,7 @@
            margin: 0;
            background-color: #283d4f;
            font-family: 'Orbitron', sans-serif;
-           overflow: hidden;
+           overflow: clip;
            color: #13132d;
        }
         .centered-div {
@@ -30,11 +27,6 @@
        }
 
 
-       img {
-           width: 100%;
-           height: auto;
-           filter: url('#swirl');
-       }
        .stamp {
            clip-path: polygon(
                5% 0%, 10% 5%, 15% 0%, 20% 5%, 25% 0%, 30% 5%, 35% 0%, 40% 5%, 45% 0%, 50% 5%,
@@ -46,16 +38,16 @@
            padding: 15px;
            border: 10px dashed black;
            border-radius: 15px;
-           box-shadow: 0 0 0 5px white;
-           opacity: 0.7;
+           opacity: 1;
        }
 
 
        .stamp img {
-           width: 1200px;
-           height: 1200px;
+           width: 400px;
+           height: 400px;
            object-fit: contain;
            transform: translate(-25%, -50%);
+           filter: url('#swirl') saturate(80%);
        }
 
 
@@ -90,7 +82,6 @@
 
        .hover-box:hover {
            font-size: 1.6rem;
-           /* border: 3px solid #283d4f; */
            background-color: #13132d;
            color: #283d4f;
            outline: 20px solid #13132d;
@@ -138,10 +129,6 @@
 
 
        @media screen and (max-width: 768px) {
-           html, body {
-               width: 100%;
-               overflow-x: hidden; /* Prevent horizontal scroll */
-           }
 
 
            h1 {
@@ -283,10 +270,10 @@
 </head>
 <body>
  
-   <div class="centered-div">
+   <div class="centered-div" style="overflow: hidden; width:100%; height:100%">
       
        <div class="stamp">
-           <img id="image" class="hue-image" src="https://4kwallpapers.com/images/walls/thumbs_3t/4530.png">
+           <img id="image" class="hue-image" src="https://i.dailymail.co.uk/i/pix/2013/12/16/article-2523669-1A183EF200000578-71_964x594.jpg">
        </div>
    </div>
 
@@ -354,11 +341,11 @@
 
 
        toggleEffect()
-       setInterval(toggleEffect, 3000);
+       setInterval(toggleEffect, 5000);
 
 
        function normal() {
-           gsap.to('#liquid', { duration: 5, attr: { scale: 0 } });
+           gsap.to('#liquid', { duration: 5, attr: { scale: -100 } });
        }
 
 
@@ -368,6 +355,4 @@
    </script>
 </body>
 </html>
-
-
 
